@@ -1,0 +1,21 @@
+{
+  "name": "BoolArray",
+  "keywords": "Bool,Boolean,array,compact,compressed",
+  "description": "Arduino library for compact array of booleans of max size 2000 (UNO).",
+  "authors":
+  [
+    {
+      "name": "Rob Tillaart",
+      "email": "Rob.Tillaart@gmail.com",
+      "maintainer": true
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/RobTillaart/BoolArray.git"
+  },
+  "version":"0.2.2",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
