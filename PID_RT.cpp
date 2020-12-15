@@ -14,7 +14,7 @@ PID_RT::PID_RT()
   reset();
 }
 
-PID_RT(float sp, float Kp, float Ki, float Kd)
+PID_RT::PID_RT(float sp, float Kp, float Ki, float Kd)
 {
   reset();
   setPoint(sp);
