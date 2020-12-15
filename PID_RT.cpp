@@ -11,8 +11,38 @@
 
 PID_RT::PID_RT()
 {
+  reset();
 }
 
+PID_RT(float sp, float Kp, float Ki, float Kd)
+{
+  reset();
+  setPoint(sp);
+  setK(Kp, Ki, Kd);
+}
+
+void PID_RT::reset()
+{
+  _lastTime = 0;
+  _interval = 250;
+  _errorSum = 0.0;
+  _setPoint = 0.0;
+  _input    = 0.0;
+  _lastInput= 0.0;
+  _error    = 0.0;
+  _output   = 0.0;
+  _rmin     = 0.0;
+  _rmax     = 100.0;
+  _Kp       = 0.0;
+  _Ki       = 0.0;
+  _Kd       = 0.0;
+  __Kp      = 0.0;
+  __Ki      = 0.0;
+  __Kd      = 0.0;
+ _reverse   = false;
+ _running   = false;
+ _POI       = true;   // Proportional On Input - Error
+}
 
 bool PID_RT::setK(float Kp, float Ki, float Kd)
 {

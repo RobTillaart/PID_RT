@@ -36,6 +36,7 @@ unittest_teardown()
 unittest(test_constructor)
 {
   PID_RT PID;
+  PID.reset();
 
   assertFalse(PID.isRunning());
   PID.start();
@@ -88,10 +89,11 @@ unittest(test_constructor)
 unittest(test_compute)
 {
   PID_RT PID;
+  PID.reset();
 
   assertFalse(PID.isRunning());
   
-  // TODO how to do this
+  // TODO how to test this
   assertEqual(1, 1);
 }
 

@@ -12,7 +12,10 @@ class PID_RT
 {
 public:
   PID_RT();
+  PID_RT(float sp, float Kp, float Ki, float Kd);
 
+  void reset();
+  
   void  setPoint(float sp) { _setPoint = sp; };
   float getSetPoint()      { return _setPoint; };
   
@@ -29,7 +32,7 @@ public:
   bool getReverse() { return _reverse; };
 
   // how often should one do the math
-  void     setInterval(uint32_t interval) { _interval = interval; };
+  void     setInterval(uint32_t interval);
   uint32_t getInterval() { return _interval; };
 
   // tune the output range, default 0..100

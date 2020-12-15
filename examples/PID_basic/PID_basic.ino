@@ -7,11 +7,15 @@
 //    (c) : MIT
 //
 
+// connect an LED to the PWM pin
+// connect a potmeter to A0
+// play :)
+
 #include "PID_RT.h"
 
 PID_RT PID;
 
-const int PWM_PIN = 3;
+const int PWM_PIN = 3;  // UNO PWM pin
 
 int op = 0;;
 float input = 0;
@@ -22,7 +26,7 @@ void setup()
   Serial.println(__FILE__);
 
   PID.setPoint(125);
-  PID.setOutputRange(0, 255);
+  PID.setOutputRange(0, 255);  // PWM range
   PID.setInterval(50);
   PID.setK(2, 5, 1);
   PID.start();
@@ -37,6 +41,7 @@ void loop()
   {
     op = PID.getOutput();
     analogWrite(PWM_PIN, op);
+    
     Serial.print(PID.getInput());
     Serial.print('\t');
     Serial.println(op);
