@@ -45,7 +45,8 @@ unittest(test_constructor)
 
   assertEqual(0, PID.getSetPoint());
   PID.setPoint(152.45);
-  assertEqual(152.45, PID.getSetPoint());
+  float diffSetPoint = abs(152.45 - PID.getSetPoint());
+  assertMoreOrEqual(0.01, diffSetPoint);
 
   assertFalse(PID.getReverse());
   PID.setReverse(true);
@@ -53,7 +54,7 @@ unittest(test_constructor)
   PID.setReverse(false);
   assertFalse(PID.getReverse());
 
-  assertEqual(100, PID.getInterval());
+  assertEqual(250, PID.getInterval());
   PID.setInterval(125);
   assertEqual(125, PID.getInterval());
   
@@ -84,10 +85,13 @@ unittest(test_constructor)
 }
 
 
-unittest(test_)
+unittest(test_compute)
 {
   PID_RT PID;
 
+  assertFalse(PID.isRunning());
+  
+  // TODO how to do this
   assertEqual(1, 1);
 }
 
