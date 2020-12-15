@@ -1,7 +1,7 @@
 {
-  "name": "BoolArray",
-  "keywords": "Bool,Boolean,array,compact,compressed",
-  "description": "Arduino library for compact array of booleans of max size 2000 (UNO).",
+  "name": "PID_RT",
+  "keywords": "PID Proportional Integral Derived controller ",
+  "description": "Arduino PID library",
   "authors":
   [
     {
@@ -13,9 +13,9 @@
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/RobTillaart/BoolArray.git"
+    "url": "https://github.com/RobTillaart/PID_RT"
   },
-  "version":"0.2.2",
+  "version":"0.1.0",
   "frameworks": "arduino",
   "platforms": "*"
 }
