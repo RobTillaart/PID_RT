@@ -32,7 +32,7 @@ public:
   bool getReverse() { return _reverse; };
 
   // how often should one do the math
-  void     setInterval(uint32_t interval);
+  bool     setInterval(uint32_t interval);
   uint32_t getInterval() { return _interval; };
 
   // tune the output range, default 0..100

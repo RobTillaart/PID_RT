@@ -14,12 +14,14 @@ PID_RT::PID_RT()
   reset();
 }
 
+
 PID_RT::PID_RT(float sp, float Kp, float Ki, float Kd)
 {
   reset();
   setPoint(sp);
   setK(Kp, Ki, Kd);
 }
+
 
 void PID_RT::reset()
 {
@@ -44,6 +46,7 @@ void PID_RT::reset()
  _POI       = true;   // Proportional On Input - Error
 }
 
+
 bool PID_RT::setK(float Kp, float Ki, float Kd)
 {
   return setKp(Kp) && setKi(Ki) && setKd(Kd);
@@ -64,7 +67,7 @@ bool PID_RT::setKi(float Ki)
 {
   if (Ki < 0) return false;
   _Ki = Ki;
-  __Ki = Ki * _interval * 0.001;
+  __Ki = _Ki * _interval * 0.001;
   if (_reverse) __Ki = - __Ki;
   return true;
 };
@@ -115,7 +118,6 @@ bool PID_RT::compute(float input)
   // D
   _output += _errorSum + __Kd * dI;
 
-
   // limit output to range
   if (_output > _rmax) _output = _rmax;
   else if (_output < _rmin) _output = _rmin;
@@ -125,7 +127,17 @@ bool PID_RT::compute(float input)
 }
 
 
-
-
+bool PID_RT::setInterval(uint32_t interval)
+{
+  if (interval != _interval)
+  {
+    _interval = interval;
+    // recalc __Ki and __Kd.
+    setKi(_Ki);
+    setKd(_Kd);
+    return true;
+  }
+  return false;
+}
 
 // -- END OF FILE -- 
