@@ -2,7 +2,7 @@
 //
 //    FILE: PID_RT.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.1
+// VERSION: 0.1.2
 // PURPOSE: PID library for Arduino
 //     URL: https://github.com/RobTillaart/PID_RT
 
@@ -88,5 +88,6 @@ private:
   bool _running      = false;
   bool _POI          = true;   // Proportional On Input - Error
 };
+
 
 // -- END OF FILE -- 

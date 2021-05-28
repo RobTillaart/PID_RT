@@ -1,7 +1,7 @@
 //
 //    FILE: PID_RT.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.1
+// VERSION: 0.1.2
 // PURPOSE: PID library for Arduino
 //     URL: https://github.com/RobTillaart/PID
 //
@@ -140,5 +140,6 @@ bool PID_RT::setInterval(uint32_t interval)
   }
   return false;
 }
+
 
 // -- END OF FILE -- 
