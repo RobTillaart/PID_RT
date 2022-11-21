@@ -54,12 +54,16 @@ Returns **true** if changed, otherwise **false**.
 - **float getOutputMax()** read back setting rangeMax.
 - **void setReverse(bool reverse)** reverse behaviour, seldom needed.
 - **bool getReverse()** read back the setting.
+
+
 - **bool setKp(float Kp)** runtime updates are allowed - at your own risk.
 - **bool setKi(float Ki)** runtime updates are allowed - at your own risk.
 - **bool setKd(float Kd)** runtime updates are allowed - at your own risk.
 - **float getKp()** read back setting.
 - **float getKi()** read back setting.
 - **float getKd()** read back setting.
+
+
 - **void setPropOnInput()** this is default behaviour.
 - **void setPropOnError()** alternative.
 - **bool isPropOnInput()** read back setting.
@@ -83,8 +87,19 @@ See examples.
 
 ## Future
 
-- update documentation
+#### must
+
+- update / improve documentation
+- more testing
+
+#### should
+
 - add examples to test more
 - improve unit test
-- 
+- move all code to .cpp
+
+#### could
+
+- add reference to PID book / website?
+- investigate if it works as PI or P controller too.
 

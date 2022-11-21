@@ -1,21 +1,9 @@
 //
-//    FILE: PID_RT.h
+//    FILE: PID_RT.cpp
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.4
+// VERSION: 0.1.5
 // PURPOSE: PID library for Arduino
 //     URL: https://github.com/RobTillaart/PID
-//
-//  HISTORY
-//  0.1.0  2020-12-15  update readme, fix unit test, 
-//                     fix library.json
-//                     add 2nd constructor
-//  0.1.1  2021-05-27  add json check, add lint check
-//  0.1.2  2021-05-28  minor edits
-//  0.1.3  2021-11-12  update build-CI, update readme
-//                     renamed variables for readability
-//                     added history
-//                     fixed bug in setK
-//  0.1.4  2021-12-23  update library.json, license, minor edits
 
 
 #include "PID_RT.h"
@@ -130,7 +118,7 @@ bool PID_RT::compute(float input)
   _errorSum += __Ki * _error;
   if (_errorSum > _rangeMax) _errorSum = _rangeMax;
   else if (_errorSum < _rangeMin) _errorSum = _rangeMin;
-  
+
   // D
   _output += _errorSum + __Kd * dI;
 
