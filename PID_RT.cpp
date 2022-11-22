@@ -43,13 +43,13 @@ void PID_RT::reset()
   __Kd       = 0.0;
  _reverse    = false;
  _running    = false;
- _POI        = true;   // Proportional On Input - Error
+ _POI        = true;   //  Proportional On Input - Error
 }
 
 
 bool PID_RT::setK(float Kp, float Ki, float Kd)
 {
-  // prevent short-cut evaluation.
+  //  prevent short-cut evaluation.
   bool b = setKp(Kp);
   b = b && setKi(Ki);
   b = b && setKd(Kd);
@@ -71,7 +71,7 @@ bool PID_RT::setKi(float Ki)
 {
   if (Ki < 0) return false;
   _Ki = Ki;
-  __Ki = _Ki * _interval * 0.001;   // milliseconds.
+  __Ki = _Ki * _interval * 0.001;   //  milliseconds.
   if (_reverse) __Ki = - __Ki;
   return true;
 };
@@ -103,7 +103,7 @@ bool PID_RT::compute(float input)
   _error = _setPoint - _input;
   float dI = _lastInput - _input;
 
-  // P - proportional on input or proportional on error
+  //  P - proportional on input or proportional on error
   if (_POI == false)
   {
     _output  = __Kp * _error;
@@ -114,15 +114,15 @@ bool PID_RT::compute(float input)
     _errorSum += __Kp * dI;
   }
   
-  // I
+  //  I
   _errorSum += __Ki * _error;
   if (_errorSum > _rangeMax) _errorSum = _rangeMax;
   else if (_errorSum < _rangeMin) _errorSum = _rangeMin;
 
-  // D
+  //  D
   _output += _errorSum + __Kd * dI;
 
-  // limit output to range
+  //  limit output to range
   if (_output > _rangeMax) _output = _rangeMax;
   else if (_output < _rangeMin) _output = _rangeMin;
 
@@ -136,7 +136,7 @@ bool PID_RT::setInterval(uint32_t interval)
   if (interval != _interval)
   {
     _interval = interval;
-    // recalculate __Ki and __Kd.
+    //  recalculate __Ki and __Kd.
     setKi(_Ki);
     setKd(_Kd);
     return true;
@@ -145,5 +145,5 @@ bool PID_RT::setInterval(uint32_t interval)
 }
 
 
-// -- END OF FILE -- 
+//  -- END OF FILE -- 
 

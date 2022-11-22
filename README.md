@@ -44,7 +44,7 @@ Overwrites the values set in the constructor.
 - **bool isRunning()** return the enable/disable flag.
 
 
-### Additional parameters
+### Behaviour parameters
 
 - **bool setInterval(uint32_t interval)** set the interval between two **compute()** calls. 
 Returns **true** if changed, otherwise **false**.
@@ -56,6 +56,8 @@ Returns **true** if changed, otherwise **false**.
 - **bool getReverse()** read back the setting.
 
 
+### K-parameters
+
 - **bool setKp(float Kp)** runtime updates are allowed - at your own risk.
 - **bool setKi(float Ki)** runtime updates are allowed - at your own risk.
 - **bool setKd(float Kd)** runtime updates are allowed - at your own risk.
@@ -63,6 +65,8 @@ Returns **true** if changed, otherwise **false**.
 - **float getKi()** read back setting.
 - **float getKd()** read back setting.
 
+
+### Proportional
 
 - **void setPropOnInput()** this is default behaviour.
 - **void setPropOnError()** alternative.
@@ -102,4 +106,5 @@ See examples.
 
 - add reference to PID book / website?
 - investigate if it works as PI or P controller too.
+  - PI as derived or base class?
 
