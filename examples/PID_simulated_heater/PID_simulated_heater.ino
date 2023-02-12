@@ -68,23 +68,26 @@ void report(void){
 }
 
 float simPlant(float Q){ // heat input in W (or J/s)
-   // simulate a 1x1x2cm aluminum block with a heater and passive ambient cooling
-   float C = 237; // W/mK thermal conduction coefficient for Al
-   float h = 5 ; // W/m2K thermal convection coefficient for Al passive
-   float Cps = 0.89; // J/g°C
-   float area = 1e-4; // m2 area for convection
-   float mass = 10 ; // g
-   float Tamb = 25; // °C
-   static float T = Tamb; // °C
-   static uint32_t last = 0;
-   uint32_t interval = 100; // ms
+   //  simulate a 1x1x2cm aluminum block with a heater and passive ambient cooling
+   //  next line "C is not used", fails in arduino-build-ci for ESP32
+   //  float C = 237;  // W/mK thermal conduction coefficient for Al
+   float h    = 5;    //  W/m2K thermal convection coefficient for Al passive
+   float Cps  = 0.89; //  J/g°C
+   float area = 1e-4; //  m2 area for convection
+   float mass = 10;   // g
+   float Tamb = 25;   // °C
+
+   static float T       = Tamb;   //   °C
+   static uint32_t last = 0;      //  last call
+   uint32_t interval    = 100;    //  milliseconds
 
    if(millis() - last >= interval){
      last += interval;
-     T = T + Q*interval/1000/mass/Cps - (T-Tamb)*area*h;
+     T = T + Q * interval / 1000 / mass / Cps - (T - Tamb) * area * h;
    }
    return T;
 }
 
 
 //  -- END OF FILE --
+
