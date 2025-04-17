@@ -2,7 +2,7 @@
 //
 //    FILE: PID_RT.h
 //  AUTHOR: Rob Tillaart
-// VERSION: 0.1.7
+// VERSION: 0.1.8
 // PURPOSE: PID library for Arduino
 //     URL: https://github.com/RobTillaart/PID_RT
 
@@ -10,7 +10,13 @@
 #include "Arduino.h"
 
 
-#define PID_LIB_VERSION               (F("0.1.7"))
+#define PID_LIB_VERSION               (F("0.1.8"))
+
+
+//  fix #8, control the interval check in compute()
+#ifndef PID_DO_INTERVAL_CHECK
+#define PID_DO_INTERVAL_CHECK         true
+#endif
 
 
 class PID_RT
