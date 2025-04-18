@@ -14,8 +14,14 @@
 
 
 //  fix #8, control the interval check in compute()
-#ifndef PID_DO_INTERVAL_CHECK
-#define PID_DO_INTERVAL_CHECK         true
+//  Enables the compute() function to check if the interval has passed. (default)
+//  If the interval has passed, new values will be computed and compute() returns true.
+//  If the interval has not passed, the compute() function will not
+//  compute a new value and compute() will return false.
+//  If the interval check by compute() is disabled, the user has to ensure
+//  the interval periodicity, e.g. by using a hardware timer, external interrupt etc.
+#ifndef PID_ENABLE_INTERVAL_CHECK
+#define PID_ENABLE_INTERVAL_CHECK         true
 #endif
 
 

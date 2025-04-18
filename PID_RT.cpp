@@ -93,12 +93,14 @@ bool PID_RT::compute(float input)
   {
     return false;
   }
-#if PID_SKIP_INTERVAL_CHECK == true
+
+#if PID_ENABLE_INTERVAL_CHECK == true
   if (millis() - _lastTime < _interval)
   {
     return false;
   }
 #endif
+
   _lastTime += _interval;
 
   _input = input;
